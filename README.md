@@ -19,7 +19,7 @@ Algunas caracteristicas de Dataflow:
 - Dataflow Templates 
 - Real-time change data capture
 
-## 1. Instala el SDK de Apache Beam en Cloud Shell
+## 1. Instala el SDK de Java de Apache Beam en Cloud Shell
 Ejecuta el siguiente comando en Cloud Shell para instalar el SDK de Apache Beam
 ```
 mvn archetype:generate \
