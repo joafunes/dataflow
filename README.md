@@ -51,3 +51,4 @@ mvn -Pdataflow-runner -X -e compile exec:java -Dexec.mainClass=JDBCIOExample -De
 --runner=DataflowRunner" \
 -Pdataflow-runner
 ```
+Una vez que el job de Dataflow empiece a ejecutarse, puedes ir a la pestaña de Dataflow y en la parte de Jobs podras verificar el progreso de tu pipeline.
