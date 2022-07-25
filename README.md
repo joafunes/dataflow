@@ -20,19 +20,7 @@ Algunas caracteristicas de Dataflow:
 - Real-time change data capture
 
 ## 1. Instala el SDK de Java de Apache Beam en Cloud Shell
-Ejecuta el siguiente comando en Cloud Shell para instalar el SDK de Apache Beam
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=org.apache.beam \
-    -DarchetypeArtifactId=beam-sdks-java-maven-archetypes-examples \
-    -DarchetypeVersion=2.37.0 \
-    -DgroupId=org.example \
-    -DartifactId=word-count-beam \
-    -Dversion="0.1" \
-    -Dpackage=org.apache.beam.examples \
-    -DinteractiveMode=false
-```
-El argumento ``artifactId`` establece el nombre del archivo jar que se creó. Para estas instrucciones, se usa el valor predeterminado de ``word-count-beam``
+Ingresa [aqui](https://cloud.google.com/dataflow/docs/guides/installing-beam-sdk#java) para mayor detalle.
 
 ## 2. Crea tu archivo de configuracion ``pom.xml``
 La unidad básica de trabajo en Maven es el llamado Modelo de Objetos de Proyecto conocido simplemente como POM (de sus siglas en inglés: Project Object Model). Por lo tanto debes crear tu propio archivo ``pom.xml`` o simplemente descargar el provisto aqui, el cual ya dispone de las dependencias necesarias para nuestro objetivo.
