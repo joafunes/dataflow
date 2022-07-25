@@ -10,7 +10,6 @@ mvn -Pdataflow-runner -X -e compile exec:java -Dexec.mainClass=JDBCIOExample -De
 --runner=DataflowRunner" \
 -Pdataflow-runner
 
-NOTA: Los archivos JDBCIOExample.java y el pom.xml debden estar en el mismo directorio
 La instancia CloudSQL SQLServer tiene una ip privada y a esa misma me estoy conectando, sin necesidad de un proxy
 */
 
@@ -36,10 +35,6 @@ import java.util.Arrays;
 
 
 public class JDBCIOExample {
-
-    /*private static final Logger LOG = LoggerFactory.getLogger(JDBCIOExample.class);
-    private static final List<String> acceptedTypes = Arrays.asList(
-        new String[]{"string", "boolean", "int", "long", "float", "double"});*/
     
 
     public interface JDBCIOExampleOptions extends PipelineOptions {
@@ -55,24 +50,8 @@ public class JDBCIOExample {
         void setOutput(String value);
       }
 
-    /*public static void checkFieldTypes(Schema schema) throws IllegalArgumentException {
-        for (Schema.Field field : schema.getFields()) {
-            String fieldType = field.schema().getType().getName().toLowerCase();
-            if (!acceptedTypes.contains(fieldType)) {
-                LOG.error("Data transformation doesn't support: " + fieldType);
-                throw new IllegalArgumentException("Field type " + fieldType + " is not supported.");
-            }
-        }
-    }*/
     public static void main(String[] args) {
 
-        // Get Avro Schema
-        //String schemaJson = getSchema(options.getAvroSchema());
-        //String schemaJson = "[('Id', int), ('Nombre', str), ('Apellido', str)]";
-        //Schema schema = new Schema.Parser().parse(schemaJson);
-
-        // Check schema field types before starting the Dataflow job
-        //checkFieldTypes(schema);
 
         JDBCIOExampleOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(JDBCIOExampleOptions.class);
         Pipeline p = Pipeline.create(options);
@@ -82,7 +61,7 @@ public class JDBCIOExample {
                 .create("com.microsoft.sqlserver.jdbc.SQLServerDriver","jdbc:sqlserver://10.48.176.3:1433;database=negocio;encrypt=false")
                 //.create("com.mysql.jdbc.Driver","jdbc:mysql://your_ip_sql:3306/products?useSSL=false")
                 .withUsername("sqlserver")
-                .withPassword("abc123"))
+                .withPassword("mypass"))
                 .withQuery("SELECT * FROM Personas")
                 .withCoder(StringUtf8Coder.of())
                 //.withStatementPreparator(new JdbcIO.StatementPreparator() {
